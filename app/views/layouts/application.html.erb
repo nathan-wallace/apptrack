@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Apptrack</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%=link_to "Home", root_path %>
-<%=link_to "About", about_path %>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>AppTrack</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+	<div class="container">
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "asert alert-#{name}") %>
+		<% end %>
+	    <%= yield %>
+	    <%= render 'layouts/footer' %>
+	</div>
+  </body>
 </html>
