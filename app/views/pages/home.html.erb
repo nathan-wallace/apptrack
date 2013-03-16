@@ -1,7 +1,11 @@
-<div class="center hero-unit">
-    <h1>Welcome to AppTrack!</h1>
-    <p>Create and manage job applications and review applicants online with <%= link_to 'AppTrack',  "#" %>. 
-     </p>
+<% if user_signed_in? %>
+	<h1>You are logged in</h1>
+<% else %>
+	<div class="center hero-unit">
+	    <h1>Welcome to AppTrack!</h1>
+	    <p>Create and manage job applications and review applicants online with <%= link_to 'AppTrack',  "#" %>. 
+	     </p>
 
-    <p> <%= link_to 'Sign up now!',  new_user_registration_path , class: "btn btn-large btn-primary" %> </p>
-</div>
+	    <p> <%= link_to 'Sign up now!',  new_user_registration_path , class: "btn btn-large btn-primary" %> </p>
+	</div>
+<% end %>
